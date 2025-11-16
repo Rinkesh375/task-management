@@ -25,7 +25,7 @@ export default function Header({ onSearch }: { onSearch: (q: string) => void }) 
     <header className="flex flex-col gap-4">
       <div>
         <h1 className="text-xl font-semibold">To-Do Weekly</h1>
-        <p className="text-sm text-slate-500">Organize tasks by week</p>
+        <p className="text-sm text-slate-500">Organize tasks by wee</p>
       </div>
 
       <div className="relative w-full">
