@@ -2,17 +2,21 @@
 import type { Task } from "@/types/task";
 import server from "../lib/axiosInstance";
 
-export async function getUserTasks(query?: string) {
-  try {
-    // If time remains, we will implement user-based task fetching and creation.
-    let url = `/tasks?user=691839459172f2a39380b2d2`;
+("use server");
 
-    if (query && query.trim() !== "") {
+export async function getUserTasks(query: string) {
+  try {
+    let url = `${process.env.BACKEND_URL}/tasks?user=691839459172f2a39380b2d2`;
+
+    if (query?.trim()) {
       url += `&q=${encodeURIComponent(query)}`;
     }
 
-    const response = await server.get(url);
-    return response.data;
+    const res = await fetch(url, {
+      cache: "no-store",
+    });
+
+    return res.json();
   } catch (error) {
     throw error;
   }
@@ -25,7 +29,6 @@ export async function createUserTask(payload: Task) {
       user: "691839459172f2a39380b2d2",
     });
     return res.data;
-    
   } catch (error) {
     throw error;
   }
