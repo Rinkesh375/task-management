@@ -26,7 +26,7 @@ export default function WeekTaskDashboard({
       return { ...groupTasksByWeek(tasks) };
     }, [tasks]);
 
-  const currentWeekKey = useMemo(() => startOfWeekISO(new Date()), [tasks]);
+  const currentWeekKey = useMemo(() => startOfWeekISO(new Date()), []);
 
   const selectedWeekTasks = groups[currentWeekKey] ?? [];
 
