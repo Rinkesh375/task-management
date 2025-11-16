@@ -4,7 +4,7 @@ import server from "../lib/axiosInstance";
 
 export async function getUserTasks(query: string) {
   try {
-    let url = `${process.env.NEXT_PUBLIC_API_URL}/tasks?user=691839459172f2a39380b2d2`;
+    let url = `${process.env.API_URL}/tasks?user=691839459172f2a39380b2d2`;
 
     if (query?.trim()) {
       url += `&q=${encodeURIComponent(query)}`;
