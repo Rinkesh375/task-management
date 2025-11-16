@@ -21,7 +21,7 @@ export default function WeekCard({
   active?: boolean;
   tasksWeeklyProgoress: number;
   totalTasks: number;
-  fetchTasks: () => Promise<void>;
+  fetchTasks: (query:string) => Promise<void>;
 }) {
   const weekStart = new Date(weekStartISO);
   const days: { label: string; date: Date; isToday: boolean }[] = [];

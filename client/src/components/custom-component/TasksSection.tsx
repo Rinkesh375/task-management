@@ -10,7 +10,7 @@ import {
   updateUserTask,
 } from "@/query/user-tasks";
 import { defaultFormState } from "@/lib/constant";
-import { set } from "date-fns";
+
 
 export default function TasksSection({
   initialTasks: tasks,
@@ -22,7 +22,7 @@ export default function TasksSection({
   initialTasks: TaskWithID[];
   openForm: boolean;
   updateFormModal: (value: boolean, formType: FormType) => void;
-  fetchTasks: () => Promise<void>;
+  fetchTasks: (q:string) => Promise<void>;
   formType: FormType;
 }) {
   const [loading, setLoading] = useState(false);
@@ -36,14 +36,14 @@ export default function TasksSection({
           ? TaskStatus.InProgress
           : TaskStatus.Completed;
       await updateUserTask(id, { status: newStatus });
-      await fetchTasks();
+      await fetchTasks("");
     } catch {}
   }
 
   async function deleteTask(id: string) {
     try {
       await deleteUserTask(id);
-      await fetchTasks();
+      await fetchTasks("");
     } catch {}
   }
 
@@ -51,7 +51,7 @@ export default function TasksSection({
     try {
       setLoading(true);
       await createUserTask(payload);
-      await fetchTasks();
+      await fetchTasks("");
       closeModal();
     } catch {
     } finally {
@@ -63,7 +63,7 @@ export default function TasksSection({
     try {
       setLoading(true);
       await updateUserTask(editId, payload);
-      await fetchTasks();
+      await fetchTasks("");
       closeModal();
     } catch {
     } finally {
