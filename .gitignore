@@ -1,0 +1,51 @@
+# -----------------------
+# Root ignores
+# -----------------------
+
+# Node modules (client + server)
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Ignore all env files EXCEPT .env.sample
+.env
+.env.*
+!.env.sample
+
+client/.env
+client/.env.*
+!client/.env.sample
+
+server/.env
+server/.env.*
+!server/.env.sample
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output (client + server)
+dist/
+build/
+.next/
+out/
+
+client/.next/
+client/dist/
+client/out/
+
+server/dist/
+server/build/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/

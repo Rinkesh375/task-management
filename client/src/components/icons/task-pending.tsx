@@ -1,0 +1,32 @@
+export default function TaskPendingIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="3"
+        stroke="#B3282D"
+        strokeWidth="1.5"
+      />
+
+      <circle cx="12" cy="12" r="5" stroke="#B3282D" strokeWidth="1.5" />
+
+      <path
+        d="M12 9V12L14 13"
+        stroke="#B3282D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
