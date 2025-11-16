@@ -71,6 +71,7 @@ export default function TaskForm({
           <div>
             <label className="text-sm text-gray-600">Task title</label>
             <Input
+              autoFocus={false}
               placeholder="Enter task title"
               value={formData.title}
               className="mt-1"
