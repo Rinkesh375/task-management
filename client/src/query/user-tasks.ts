@@ -2,11 +2,9 @@
 import type { Task } from "@/types/task";
 import server from "../lib/axiosInstance";
 
-("use server");
-
 export async function getUserTasks(query: string) {
   try {
-    let url = `${process.env.BACKEND_URL}/tasks?user=691839459172f2a39380b2d2`;
+    let url = `${process.env.NEXT_PUBLIC_API_URL}/tasks?user=691839459172f2a39380b2d2`;
 
     if (query?.trim()) {
       url += `&q=${encodeURIComponent(query)}`;
