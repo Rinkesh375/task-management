@@ -28,7 +28,6 @@ export default function TasksSection({
   const [loading, setLoading] = useState(false);
   const [editId, setEditId] = useState<string>("");
   const [editData, setEditData] = useState<Task>(defaultFormState);
-  const [showAll, setShowAll] = useState(false);
 
   async function toggleComplete(id: string, status: string) {
     try {
@@ -56,7 +55,7 @@ export default function TasksSection({
       closeModal();
     } catch {
     } finally {
-      setLoading
+      setLoading;
     }
   }
 
@@ -84,19 +83,14 @@ export default function TasksSection({
     setLoading(false);
   };
 
-  const visibleTasks = showAll ? tasks : tasks.slice(0, 4);
-
   return (
     <section>
       <div className="flex justify-between items-center p-3">
         <h2 className="text-xl font-semibold">Today Task</h2>
 
         {tasks.length > 4 && (
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="text-sm text-primary-blue font-medium"
-          >
-            {showAll ? "View Less" : "View All"}
+          <button className="text-sm text-primary-blue font-medium">
+            { "View All"}
           </button>
         )}
       </div>
@@ -105,7 +99,7 @@ export default function TasksSection({
         {tasks.length === 0 ? (
           <div className="text-sm text-slate-500">No tasks for today</div>
         ) : (
-          visibleTasks.map((t) => (
+          tasks.map((t) => (
             <TaskCard
               key={t._id}
               task={t}
