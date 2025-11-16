@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// If time remains, we will implement user-based task fetching and creation and google and github auth.
+// If time remains, will  implement user-based task fetching and creation and google and github auth.
 const UserSchema = new mongoose.Schema(
   {
     name: {

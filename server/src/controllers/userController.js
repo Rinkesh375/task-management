@@ -2,7 +2,7 @@ const UserModel = require("../models/User-Schema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// If time remains, we will implement user-based task fetching and creation and google and github auth.
+// If time remains, will  implement user-based task fetching and creation and google and github auth.
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req?.body;
