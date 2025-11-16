@@ -1,3 +1,4 @@
+"use client";
 import type { TaskGroups, TaskWithID, WeekEntry } from "@/types/task";
 import { startOfWeekISO } from "./week-utils";
 
@@ -22,6 +23,6 @@ export function groupTasksByWeek(tasks: TaskWithID[]) {
     groups,
     tasksWeeklyProgoress:
       totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100),
-    totalTasks  
+    totalTasks,
   };
 }
