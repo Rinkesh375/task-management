@@ -8,20 +8,16 @@ import TaskPendingIcon from "../icons/task-pending";
 
 export default function WeekCard({
   weekStartISO,
-  open,
-  closed,
-  active = false,
   tasksWeeklyProgoress,
   totalTasks,
-  fetchTasks,
+  left,
+  completedTasks,
 }: {
   weekStartISO: string;
-  open: number;
-  closed: number;
-  active?: boolean;
   tasksWeeklyProgoress: number;
   totalTasks: number;
-  fetchTasks: (query:string) => Promise<void>;
+   left: number;
+  completedTasks: number;
 }) {
   const weekStart = new Date(weekStartISO);
   const days: { label: string; date: Date; isToday: boolean }[] = [];
@@ -66,7 +62,7 @@ export default function WeekCard({
                 <span className="text-gray-700 font-medium">Task Complete</span>
               </div>
               <div className="mt-2 text-3xl font-bold text-blue-700">
-                {closed}
+                {completedTasks}
               </div>
               <div className="text-xs text-gray-500">This Week</div>
             </div>
@@ -76,7 +72,7 @@ export default function WeekCard({
                 <TaskPendingIcon className="h-6 w-6" />
                 <span className="text-gray-700 font-medium">Task Pending</span>
               </div>
-              <div className="mt-2 text-3xl font-bold text-red-700">{open}</div>
+              <div className="mt-2 text-3xl font-bold text-red-700">{left}</div>
               <div className="text-xs text-gray-500">This Week</div>
             </div>
           </div>
